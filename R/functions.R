@@ -2609,7 +2609,7 @@ ci<-c(-0.0001,-0.001,-0.001,0.999,0.15)
    
 constraint_check <- (0.01 + 0.8 + delta * 0.1) < 1
 
-if (all(c(a > 0.0001, b > 0.001, g > 0.001, g < 0.15, constraint_check))) {
+if (all(c(0.01 > 0.0001, 0.8 > 0.001, 0.1 > 0.001, 0.1 < 0.15, constraint_check))) {
   print("Initial values are within the feasible region")
 } else {
   print("Initial values are NOT within the feasible region")
