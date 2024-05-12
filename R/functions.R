@@ -2585,7 +2585,7 @@ method="BFGS")
 
 start_val<-ui<-ci<-NULL
 
-start_val<-c(a=0.01,b=0.2,g=0.1)
+start_val<-c(a=0.01,b=0.5,g=0.1)
 
 eta<-array(0,dim=c(Num_assets,1,TT))
 eta<-ifelse(eps_t<0,1,0)*eps_t
@@ -2607,14 +2607,14 @@ c(0,0,-1))				## g<0.15
 
 ci<-c(-0.0001,-0.001,-0.001,0.999,0.15)
    
-constraint_check <- (0.01 + 0.2 + delta * 0.1) < 1
+constraint_check <- (0.01 + 0.5 + delta * 0.1) < 1
+print(delta)
+print(0.01 + 0.5 + delta * 0.1)
 
-if (all(c(0.01 > 0.0001, 0.2 > 0.001, 0.1 > 0.001, 0.1 < 0.15, constraint_check))) {
+if (all(c(0.01 > 0.0001, 0.5 > 0.001, 0.1 > 0.001, 0.1 < 0.15, constraint_check))) {
   print("Initial values are within the feasible region")
-  print(delta)
 } else {
   print("Initial values are NOT within the feasible region")
-  print(delta)
 }
 
 m_est<-maxLik(logLik=a_dcc_loglik,
