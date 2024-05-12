@@ -2606,6 +2606,14 @@ c(-1,-1,-delta),	     	## a+b+delta*g<1
 c(0,0,-1))				## g<0.15
 
 ci<-c(-0.0001,-0.001,-0.001,0.999,0.15)
+   
+constraint_check <- (a + b + delta * g) < 1
+
+if (all(c(a > 0.0001, b > 0.001, g > 0.001, g < 0.15, constraint_check))) {
+  print("Initial values are within the feasible region")
+} else {
+  print("Initial values are NOT within the feasible region")
+}
 
 m_est<-maxLik(logLik=a_dcc_loglik,
 start=start_val,
