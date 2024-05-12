@@ -2614,6 +2614,7 @@ if (all(c(0.01 > 0.0001, 0.8 > 0.001, 0.1 > 0.001, 0.1 < 0.15, constraint_check)
   print(delta)
 } else {
   print("Initial values are NOT within the feasible region")
+  print(delta)
 }
 
 m_est<-maxLik(logLik=a_dcc_loglik,
